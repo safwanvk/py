@@ -1,0 +1,11 @@
+univerities = ['uoc', 'mg', 'ktu', 'cusat', 'kerala', 'kannur']
+univerities.insert(1, 'tvm')
+print(univerities)
+univerities.append('nit')
+print(univerities)
+univerities.remove('kannur')
+print(univerities)
+univerities.sort(reverse=1)
+print(univerities)
+univerities.reverse()
+print(univerities)
