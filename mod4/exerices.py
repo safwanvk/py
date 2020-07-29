@@ -2,17 +2,20 @@
 [Apple, Boy, Cat, Dog]
 output: Boy, Cat, Dog(should be a single string) """
 
-n = int(input('enter limit of array'))
-list1 = [input('enter word') for i in range(n)]
-list1.remove(list1[0])
-list2 = ', '.join(list1)
-print(list2)
-""" enter limit of array4
-enter wordApple
-enter wordBoy
-enter wordCat
-enter wordDog
-Boy, Cat, Dog """
+l = int(input('enter limit'))
+list1 = [input('enter word') for i in range(l)]
+list2 = []
+for i in list1:
+    if len(i) == 3:
+        list2.append(i)
+list3 = ', '.join(list2)
+print(list3)
+
+""" enter limit3
+enter wordabhii
+enter wordabi
+enter wordabi
+abi, abi """
 
 """ 2. Find number in list which is not occurring multiple times """
 list1 = []
@@ -53,9 +56,19 @@ n = int(input('enter limit'))
 words = [input('enter word:') for i in range(n)]
 max_len = []
 for i in words:
-    max_len.append(   (len(i), i))
+    max_len.append((len(i), i))
 max_len.sort()
 print('the longest word length is {a} and word is {b}'.format(a=max_len[-1][0], b=max_len[-1][1]))
+
+##### or #####
+string = input('enter word:')
+words = [word for word in string.split(" ")]
+max_len = []
+for i in words:
+    max_len.append((len(i), i))
+max_len.sort()
+print('the longest word length is {a} and word is {b}'.format(a=max_len[-1][0], b=max_len[-1][1]))
+
 
 """ enter limit5
 enter word:abhi
@@ -82,19 +95,20 @@ andii """
 """ 7. Code to print ‘Yes’ if the index of two equal sized strings contains the same letter
 else print ‘No’ """
 
-str1 = input('enter string')
-str2 = input('enter another string')
-for i in range(len(str1)):
-    if str1[i] == str2[i]:
+str1 = input('enter string:')
+str2 = input('enter another string:')
+index = int(input('enter index:'))
+if len(str1) == len(str2):
+    if str1[index + 1] == str2[index + 1]:
         print('yes')
     else:
         print('no')
+else:
+    print('enter equal index values')
 
-""" enter stringappu
-enter another stringallu
-yes
-no
-no
+""" enter string:apu
+enter another string:abu
+enter index:1
 yes """
 
 """ 8. c. """
