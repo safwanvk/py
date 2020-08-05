@@ -57,6 +57,12 @@ the two formats and explain the differences."""
 # import textract
 # text = textract.process("/home/safwan/Desktop/xanthron/mod5/doc.doc") 
 
+f = open('f1.doc', 'r')
+var = f.read()
+print(var)
+f.close()
+# dummy
+
 # read .docx file
 import docx
 
@@ -159,18 +165,35 @@ try:
 except:
   print("Something went wrong")
 finally: 
+  print("The 'try except' is finished") 
+
+# Something went wrong
+# The 'try except' is finished 
+
+
+""" Raise an exception """
+
+""" As a Python developer you can choose to throw an exception if a condition occurs.
+
+To throw (or raise) an exception, use the raise keyword."""
+
+x = -1
+if x < 0:
+  raise Exception("Sorry, no numbers below zero") 
+
+"""
+Traceback (most recent call last):
+  File "demo_ref_keyword_raise.py", line 4, in <module>
+    raise Exception("Sorry, no numbers below zero")
+Exception: Sorry, no numbers below zero """
 
 """ The raise keyword is used to raise an exception.
 
 You can define what kind of error to raise, and the text to print to the user. """
 
 x = "hello"
-
-if not type(x) is int:Traceback (most recent call last):
-  File "/home/safwan/Desktop/xanthron/mod5/ex.py", line 189, in <module>
-    raise TypeError("Only integers are allowed")
-TypeError: Only integers are allowed
-  raise TypeError("Only integers are allowed")
+if not type(x) is int:
+  raise TypeError("Only integers are allowed") 
 
 """Traceback (most recent call last):
   File "/home/safwan/Desktop/xanthron/mod5/ex.py", line 189, in <module>
