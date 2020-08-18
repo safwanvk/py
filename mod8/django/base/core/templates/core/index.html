@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <div class="container">
+        <h1>WElcome to Xanthron</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for data in datas %}
+            <tr>
+                <td>{{ data.name }}</td>
+                <td>{{ data.gender }}</td>
+                <td>{{ data.age }}</td>
+                <td><a class="btn btn-primary" href="{% url 'update' data.id %}">Update</a></td>
+                <td>
+                    <form action="{% url 'delete' data.id %}" method="POST" class="d-inline-block">
+                       {% csrf_token %}
+                       <input type="submit" class="btn btn-danger" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
