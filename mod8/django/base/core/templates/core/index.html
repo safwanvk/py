@@ -1,15 +1,23 @@
 {% extends 'core/base.html' %}
 {% load crispy_forms_filters %}
 {% block content %}
+<div class="hero-image">
+    <div class="hero-text">
+      <h1>Welcome to Xanthron</h1>
+      <p>All for one,   One for all</p>
+      <button type="button" class="btn btn-info">Explore</button>
+    </div>
+</div>
     <div class="container">
-        <h1>WElcome to Xanthron</h1>
+        <h2>Add Trainee's Details</h2>
         <form method="POST">
             {% csrf_token %}
             {{ form | crispy }}
             <div class="col text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </form>
+        </form><br>
+        <h2>Trainee's Details</h2>
         <table class="table table-bordered table-dark">
             <thead>
               <tr>
