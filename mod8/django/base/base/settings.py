@@ -134,3 +134,6 @@ STATIC_ROOT = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'core:index'
+LOGOUT_REDIRECT_URL = '/'

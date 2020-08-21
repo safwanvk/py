@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_filters %}
+{% block title %} Sign-In{% endblock title %}
+{% block content %}
+
+<div class="container">
+
+    <center><h1>Sign in to Xanthron</h1></center>
+
+<form method="POST">
+{% csrf_token %}
+{{ form|crispy }}
+<input type="Submit" class="btn btn-success btn-sm" value="Sign in"><br>
+New to Xanthron? <a href="{% url 'core:register' %}" >Create an account. </a>
+</form>
+</div>
+{% endblock content %}
