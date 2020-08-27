@@ -1,29 +1,31 @@
-# # Write a program using decorators with multiple parameters.
-# def div_decarated(func):
-#     def inner(x, y):
-#         print('dividing ', x, 'and', y)
-#         if y == 0:
-#             print('Oop! Division by zero is illegal!')
-#             return
-#         return func(x, y)
-#     return inner
+# Write a program using decorators with multiple parameters.
 
-# @div_decarated
-# def divide(a, b):
-#     return a / b
+def div_decarator(func):
+    def inner(x, y):
+        print('dividing ', x, 'and', y)
+        if y == 0:
+            print('Oops! Division by zero is illegal!')
+            return
+        return func(x, y)
+    return inner
 
-# print(divide(20, 2))
-# print(divide(20, 0))
+@div_decarator
+def divide(a, b):
+    return a / b
 
-# """
-# dividing  20 and 2
-# 10.0
-# dividing  20 and 0
-# Oop! Division by zero is illegal!
-# None
-# """
+print(divide(20, 2))
+print(divide(20, 0))
+
+"""
+dividing  20 and 2
+10.0
+dividing  20 and 0
+Oop! Division by zero is illegal!
+None
+"""
 
 # Write a program using multiple decorator to add functionalities to and original function
+
 def upper_decarator(func):
     def inner():
         str1 = func()
@@ -39,7 +41,7 @@ def split_decarator(func):
 @split_decarator
 @upper_decarator
 def dec():
-    return "good moring"
+    return "Welcome to Xanthron"
 
 print(dec())
-# ['GOOD', 'MORING']
+# ['WELCOME', 'TO', 'XANTHRON']
