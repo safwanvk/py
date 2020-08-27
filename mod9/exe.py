@@ -1,53 +1,45 @@
-def decorator_factory(argument):
-    def decorator(function):
-        def wrapper(*args, **kwargs):
-            funny_stuff()
-            something_with_argument(argument)
-            result = function(*args, **kwargs)
-            more_funny_stuff()
-            return result
-        return wrapper
-    return decorator
+# # Write a program using decorators with multiple parameters.
+# def div_decarated(func):
+#     def inner(x, y):
+#         print('dividing ', x, 'and', y)
+#         if y == 0:
+#             print('Oop! Division by zero is illegal!')
+#             return
+#         return func(x, y)
+#     return inner
 
+# @div_decarated
+# def divide(a, b):
+#     return a / b
 
-import functools
+# print(divide(20, 2))
+# print(divide(20, 0))
 
-# Try the various combinations below!
-user = {'username': 'jose123', 'access_level': 'admin'}
-# user = {'username': 'bob', 'access_level': 'admin'}
-# user = {'username': 'jose123', 'access_level': 'user'}
-user = {'username': 'bob', 'access_level': 'user'}
+# """
+# dividing  20 and 2
+# 10.0
+# dividing  20 and 0
+# Oop! Division by zero is illegal!
+# None
+# """
 
+# Write a program using multiple decorator to add functionalities to and original function
+def upper_decarator(func):
+    def inner():
+        str1 = func()
+        return str1.upper()
+    return inner
 
-def user_name_starts_with_j(func):
-    """
-    This decorator only runs the function passed if the user's username starts with a j.
-    """
-    @functools.wraps(func)
-    def secure_func(*args, **kwargs):
-        if user.get('username').startswith('j'):
-            return func(*args, **kwargs)
-        else:
-            print("User's username did not start with 'j'.")
-    return secure_func
+def split_decarator(func):
+    def wrapper():
+        str2 = func()
+        return str2.split()
+    return wrapper
 
+@split_decarator
+@upper_decarator
+def dec():
+    return "good moring"
 
-def user_has_permission(func):
-    """
-    This decorator only runs the function passed if the user's access_level is admin.
-    """
-    @functools.wraps(func)
-    def secure_func(*args, **kwargs):
-        if user.get('access_level') == 'admin':
-            return func(*args, **kwargs)
-        else:
-            print("User's access_level was not 'admin'.")
-    return secure_func
-
-
-@user_has_permission
-@user_name_starts_with_j
-def double_decorator():
-    return 'I ran.'
-
-print(double_decorator())
+print(dec())
+# ['GOOD', 'MORING']
