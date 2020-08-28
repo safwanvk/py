@@ -20,7 +20,7 @@ print(divide(20, 0))
 dividing  20 and 2
 10.0
 dividing  20 and 0
-Oop! Division by zero is illegal!
+Oops! Division by zero is illegal!
 None
 """
 
